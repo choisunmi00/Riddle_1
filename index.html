@@ -6,31 +6,38 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 150px; /* Adjusted to push content down as in the image */
+            margin-top: 100px; 
         }
         h2 {
-            margin-bottom: 50px; /* Added space below the header */
+            margin-bottom: 50px; 
+            font-size: 24px; 
         }
         input[type="password"] {
-            padding: 10px;
-            margin: 10px;
-            width: 300px; /* Fixed width for the input */
-            font-size: 18px; /* Larger font size for visibility */
+            padding: 12px;
+            margin: 12px;
+            width: 340px; 
+            font-size: 20px; 
         }
         button {
-            padding: 10px 20px;
-            background-color: #000000; /* Changed to black to match the image */
+            padding: 12px 24px;
+            background-color: #000000;
             color: #fff;
             border: none;
             cursor: pointer;
-            font-size: 18px; /* Larger font size for visibility */
-            margin-top: 20px; /* Added space above the button */
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        #passwordAttempts {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            font-size: 16px; 
         }
     </style>
 </head>
 <body>
-    <h2>정답를 입력하세요</h2>
-    <input type="password" id="password" placeholder="정답을 입력하세요">
+    <h2>정답을 입력하세요.</h2>
+    <input type="password" id="password" placeholder="정답은?">
     <br>
     <button onclick="checkPassword()">확인</button>
 
@@ -38,7 +45,7 @@
 
     <script>
         var passwordAttempts = localStorage.getItem('passwordAttempts') || 0;
-        document.getElementById("passwordAttempts").innerText = "이 문제는 " + passwordAttempts + "명이 풀었습니다";
+        document.getElementById("passwordAttempts").innerText = "이 문제는 " + passwordAttempts + "명이 풀었습니다.";
 
         function checkPassword() {
             var password = document.getElementById("password").value;
@@ -46,7 +53,7 @@
 
             if (password === correctPassword) {
                 passwordAttempts++;
-                document.getElementById("passwordAttempts").innerText = "이 문제는 " + passwordAttempts + "명이 풀었습니다";
+                document.getElementById("passwordAttempts").innerText = "이 문제는 " + passwordAttempts + "명이 풀었습니다.";
                 localStorage.setItem('passwordAttempts', passwordAttempts);
                 // localStorage.removeItem('passwordAttempts'); // Uncomment to reset attempts
                 window.location.href = "AR.html";
@@ -56,3 +63,4 @@
         }
     </script>
 </body>
+</html>
