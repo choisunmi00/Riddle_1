@@ -26,14 +26,10 @@
             font-size: 18px; /* Larger font size for visibility */
             margin-top: 20px; /* Added space above the button */
         }
-        #passwordAttempts {
-            margin-top: 50px; /* Space above the password attempts message */
-            font-size: 18px; /* Larger font size for visibility */
-        }
     </style>
 </head>
 <body>
-    <h2>암호를 입력하세요</h2>
+    <h2>정답를 입력하세요</h2>
     <input type="password" id="password" placeholder="정답을 입력하세요">
     <br>
     <button onclick="checkPassword()">확인</button>
@@ -46,10 +42,17 @@
 
         function checkPassword() {
             var password = document.getElementById("password").value;
-            var correctPassword = "240319";
+            var correctPassword = "시작";
 
             if (password === correctPassword) {
                 passwordAttempts++;
                 document.getElementById("passwordAttempts").innerText = "이 문제는 " + passwordAttempts + "명이 풀었습니다";
                 localStorage.setItem('passwordAttempts', passwordAttempts);
                 // localStorage.removeItem('passwordAttempts'); // Uncomment to reset attempts
+                window.location.href = "AR.html";
+            } else {
+                alert("암호가 틀렸습니다.");
+            }
+        }
+    </script>
+</body>
